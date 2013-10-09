@@ -2,6 +2,24 @@
 <head>
 	<title>Form Tracker</title>
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<SCRIPT TYPE="text/javascript">
+var array1 = [];
+$(document).ready(function () {
+    $('input').change(function () {
+        var formbox = $(this).attr('id');
+        array1.push(formbox);
+        console.log("you filled out box " + array1);
+    });
+    $('#submit').click(function () {
+        console.log('tracked ' + array1);
+        alert('this is the order of boxes you filled out: ' + array1);
+        //uncomment below after adding the GA code to the page
+        //_gaq.push(['_trackEvent', 'Form', 'completed', '"' + array1 + '"']);
+    });
+});
+
+</SCRIPT>
+
 </head>
 <body>
 <form id="topform" >First Name:
